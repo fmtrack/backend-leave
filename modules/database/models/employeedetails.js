@@ -23,8 +23,13 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'employee_details_id',
       });
 
-      // models.EmployeeDetails.hasMany(models.OffRollEmployment, {
-      //   as: 'addresses',
+      models.EmployeeDetails.hasMany(models.EmployeeAddress, {
+        as: 'addresses',
+        foreignKey: 'employee_id',
+      });
+
+      // models.EmployeeDetails.hasMany(models.Documents, {
+      //   as: 'documents',
       //   foreignKey: 'employee_id',
       // });
     }
@@ -36,6 +41,30 @@ module.exports = (sequelize, DataTypes) => {
       employementType: DataTypes.STRING,
       bloodGroup: DataTypes.STRING,
       emergencyContact: DataTypes.STRING,
+      onRollEmployeeCode: DataTypes.STRING,
+      offRollEmployeeCode: DataTypes.STRING,
+      onRollEntityId: {
+        type: DataTypes.INTEGER,
+        field: 'onroll_entity_id',
+        references: {
+          model: {
+            tableName: 'entity',
+          },
+          key: 'id',
+        },
+        allowNull: true,
+      },
+      offRollEntityId: {
+        type: DataTypes.INTEGER,
+        field: 'offroll_entity_id',
+        references: {
+          model: {
+            tableName: 'entity',
+          },
+          key: 'id',
+        },
+        allowNull: true,
+      },
       userId: {
         type: DataTypes.INTEGER,
         field: 'users_id',
@@ -52,6 +81,7 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'EmployeeDetails',
       tableName: 'employee_details',
+      underscored: true,
     }
   );
   return EmployeeDetails;

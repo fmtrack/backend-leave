@@ -23,7 +23,10 @@ module.exports = (sequelize, DataTypes) => {
       assignedOffroll: DataTypes.STRING,
       hasResigned: DataTypes.BOOLEAN,
       resignationDate: DataTypes.DATE,
-      onrollEntityId: {
+      employeeCode: DataTypes.STRING,
+      assignedLocationId: DataTypes.INTEGER,
+      employeeSalaryId: DataTypes.INTEGER,
+      onRollEntityId: {
         type: DataTypes.INTEGER,
         field: 'onroll_entity_id',
         references: {
@@ -34,9 +37,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         allowNull: false,
       },
-      assignedLocationId: DataTypes.INTEGER,
-      employeeSalaryId: DataTypes.INTEGER,
-      employeeDetailsIs: {
+      employeeDetailId: {
         type: DataTypes.INTEGER,
         field: 'employee_details_id',
         references: {

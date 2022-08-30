@@ -20,9 +20,10 @@ module.exports = (sequelize, DataTypes) => {
       lastWorkingDate: DataTypes.DATE,
       isActive: DataTypes.BOOLEAN,
       assignedLocationId: DataTypes.INTEGER,
-      onrollEntityId: {
+      employeeCode: DataTypes.STRING,
+      onRollEntityId: {
         type: DataTypes.INTEGER,
-        field: 'entity_id',
+        field: 'onroll_entity_id',
         references: {
           model: {
             tableName: 'entity',
@@ -31,9 +32,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         allowNull: false,
       },
-      offrollEntityId: {
+      offRollEntityId: {
         type: DataTypes.INTEGER,
-        field: 'entity_id',
+        field: 'offroll_entity_id',
         references: {
           model: {
             tableName: 'entity',
@@ -43,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       employeeSalaryId: DataTypes.INTEGER,
-      employeeDetailsIs: {
+      employeeDetailId: {
         type: DataTypes.INTEGER,
         field: 'employee_details_id',
         references: {

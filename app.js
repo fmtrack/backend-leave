@@ -38,6 +38,4 @@ app.use(async (err, req, res, next) => {
 db.sequelize.sync();
 db.sequelize.authenticate().then(() => console.log('Database Connected'));
 
-app.listen(port, () =>
-  console.log(`App is running on port:${port}`)
-);
+app.listen(port, () => console.log(`App is running on port:${port}`));
