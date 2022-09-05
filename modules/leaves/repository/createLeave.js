@@ -1,8 +1,4 @@
-const {
-  LeaveType,
-  LeaveRequest,
-  LeaveAvailable,
-} = require('../../database');
+const { LeaveType, LeaveRequest, LeaveAvailable } = require('../../database');
 
 const createLeaveType = async (reqBody) => {
   return LeaveType.create({
@@ -11,5 +7,5 @@ const createLeaveType = async (reqBody) => {
 };
 
 module.exports = {
-  createLeaveType
+  createLeaveType,
 };
